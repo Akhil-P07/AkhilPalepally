@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Treasure Vault · Akhil Palepally</title>
+  <meta name="description" content="Projects and builds by Akhil Palepally — the treasure collected across the Grand Line." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏴‍☠️</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="progress"></div>
+  <div class="sunny-ship" aria-hidden="true"></div>
+
+  <!-- ============================ NAV ============================ -->
+  <nav class="nav">
+    <a class="brand" href="index.html">
+      <span class="skull" aria-hidden="true"></span>
+      <span class="name">AKHIL<span class="tag">// Grand Line Dev</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Toggle menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ========================= PAGE HEAD ======================== -->
+  <header class="section-pad" style="padding-top: clamp(6rem, 16vh, 10rem);">
+    <div class="wrap center">
+      <p class="eyebrow reveal">💰 The Treasure Vault</p>
+      <h1 class="reveal" style="font-size: clamp(1.8rem, 7vw, 4rem); color: var(--foam); text-shadow: 4px 4px 0 var(--crimson);">MY TREASURE</h1>
+      <p class="lead reveal d1" style="margin-inline: auto;">Every island I've conquered, every chest I've cracked open. Here's the loot — projects I've built and shipped.</p>
+    </div>
+  </header>
+
+  <div class="rope"></div>
+
+  <!-- ===================== FEATURED PROJECT ===================== -->
+  <section class="section-pad">
+    <div class="wrap split">
+      <div class="reveal-left panel-art" style="font-size: clamp(3rem, 11vw, 7rem);">🗺️</div>
+      <div class="reveal-right">
+        <p class="eyebrow">⭐ Crown Jewel</p>
+        <h2 style="font-size: clamp(1.4rem, 4vw, 2.4rem); color: var(--straw);">The Grand Line Map</h2>
+        <p class="lead">A full-stack adventure planner that charts your projects like islands on a pirate map. Interactive, animated, and shamelessly over-built.</p>
+        <div class="tags">
+          <span class="tag">React</span>
+          <span class="tag">Node</span>
+          <span class="tag">Canvas</span>
+          <span class="tag">PostgreSQL</span>
+        </div>
+        <div class="hero__cta mt-2" style="justify-content:flex-start;">
+          <a class="btn" href="#">🔗 Live demo</a>
+          <a class="btn btn--ghost" href="#">💻 Source</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rope"></div>
+
+  <!-- ===================== PROJECT GRID ========================= -->
+  <section class="section-pad">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">The Loot</p>
+        <h2>More chests in the vault</h2>
+      </div>
+
+      <div class="grid">
+
+        <article class="card reveal d1">
+          <p class="meta">⚔️ WEB APP</p>
+          <h3>Thousand Sunny UI Kit</h3>
+          <p>A quirky pixel-themed component library for building retro-modern interfaces fast.</p>
+          <div class="tags"><span class="tag">CSS</span><span class="tag">Storybook</span></div>
+          <div class="hero__cta mt-2" style="justify-content:flex-start;">
+            <a class="btn btn--ghost" href="#">Demo →</a>
+            <a class="btn btn--ghost" href="#">Code →</a>
+          </div>
+        </article>
+
+        <article class="card reveal d2">
+          <p class="meta">🐌 REALTIME</p>
+          <h3>Den Den Chat</h3>
+          <p>A realtime chat app with transponder-snail vibes, presence, and typing indicators.</p>
+          <div class="tags"><span class="tag">WebSocket</span><span class="tag">Node</span></div>
+          <div class="hero__cta mt-2" style="justify-content:flex-start;">
+            <a class="btn btn--ghost" href="#">Demo →</a>
+            <a class="btn btn--ghost" href="#">Code →</a>
+          </div>
+        </article>
+
+        <article class="card reveal d3">
+          <p class="meta">🎮 GAME</p>
+          <h3>Pixel Pirate Runner</h3>
+          <p>An endless-runner where you dodge Sea Kings and grab treasure. Built in pure canvas JS.</p>
+          <div class="tags"><span class="tag">JavaScript</span><span class="tag">Canvas</span></div>
+          <div class="hero__cta mt-2" style="justify-content:flex-start;">
+            <a class="btn btn--ghost" href="#">Play →</a>
+            <a class="btn btn--ghost" href="#">Code →</a>
+          </div>
+        </article>
+
+        <article class="card reveal d1">
+          <p class="meta">🧭 TOOL</p>
+          <h3>Log Pose CLI</h3>
+          <p>A command-line tool that scaffolds new projects with sensible pirate-approved defaults.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">CLI</span></div>
+          <div class="hero__cta mt-2" style="justify-content:flex-start;">
+            <a class="btn btn--ghost" href="#">Docs →</a>
+            <a class="btn btn--ghost" href="#">Code →</a>
+          </div>
+        </article>
+
+        <article class="card reveal d2">
+          <p class="meta">📊 DATA</p>
+          <h3>Bounty Board</h3>
+          <p>A dashboard that visualizes data as wanted-posters. Surprisingly useful, definitely quirky.</p>
+          <div class="tags"><span class="tag">React</span><span class="tag">D3</span></div>
+          <div class="hero__cta mt-2" style="justify-content:flex-start;">
+            <a class="btn btn--ghost" href="#">Demo →</a>
+            <a class="btn btn--ghost" href="#">Code →</a>
+          </div>
+        </article>
+
+        <article class="card reveal d3">
+          <p class="meta">📱 MOBILE</p>
+          <h3>Nakama Finder</h3>
+          <p>A crew-matching app for hackathons — find the perfect teammates before you set sail.</p>
+          <div class="tags"><span class="tag">React Native</span><span class="tag">Firebase</span></div>
+          <div class="hero__cta mt-2" style="justify-content:flex-start;">
+            <a class="btn btn--ghost" href="#">Demo →</a>
+            <a class="btn btn--ghost" href="#">Code →</a>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="center mt-2 reveal">
+        <a class="btn btn--big" href="contact.html">⚓ Want to build the next one together?</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= FOOTER =========================== -->
+  <footer class="footer">
+    <div class="jolly">🏴‍☠️</div>
+    <p class="pixel" style="font-size: 0.75rem; color: var(--straw);">AKHIL PALEPALLY</p>
+    <p>Sailing the Grand Line of code since the East Blue.</p>
+    <p class="small">© <span data-year></span> Akhil Palepally · Built with pixels &amp; pirate spirit.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

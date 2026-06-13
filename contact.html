@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Den Den Mushi · Akhil Palepally</title>
+  <meta name="description" content="Get in touch with Akhil Palepally — contact form, social links, and resume." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏴‍☠️</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="progress"></div>
+  <div class="sunny-ship" aria-hidden="true"></div>
+
+  <!-- ============================ NAV ============================ -->
+  <nav class="nav">
+    <a class="brand" href="index.html">
+      <span class="skull" aria-hidden="true"></span>
+      <span class="name">AKHIL<span class="tag">// Grand Line Dev</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Toggle menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ========================= PAGE HEAD ======================== -->
+  <header class="section-pad" style="padding-top: clamp(6rem, 16vh, 10rem); padding-bottom: 2rem;">
+    <div class="wrap center">
+      <p class="eyebrow reveal">🐌 Den Den Mushi</p>
+      <h1 class="reveal" style="font-size: clamp(1.8rem, 7vw, 4rem); color: var(--foam); text-shadow: 4px 4px 0 var(--crimson);">RING, RING!</h1>
+      <p class="lead reveal d1" style="margin-inline: auto;">Want to join the crew, talk shop, or just say ahoy? Pick up the transponder snail — I always answer.</p>
+      <div class="hero__cta mt-2 reveal d2">
+        <a class="btn btn--red btn--big" href="resume.html" target="_blank" rel="noopener">📜 Grab my Resume</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="rope"></div>
+
+  <!-- ===================== CONTACT BODY ========================= -->
+  <section class="section-pad">
+    <div class="wrap split" style="align-items: start;">
+
+      <!-- Form -->
+      <div class="reveal-left">
+        <p class="eyebrow">Send a message in a bottle</p>
+        <form class="form" novalidate>
+          <div>
+            <label for="name">Pirate name</label>
+            <input id="name" name="name" type="text" placeholder="Monkey D. ..." required />
+          </div>
+          <div>
+            <label for="email">Den Den Mushi (email)</label>
+            <input id="email" name="email" type="email" placeholder="you@grandline.sea" required />
+          </div>
+          <div>
+            <label for="message">Your message</label>
+            <textarea id="message" name="message" placeholder="Ahoy! I'd love to talk about..." required></textarea>
+          </div>
+          <button class="btn btn--red btn--big" type="submit">⚓ Send transmission</button>
+          <p class="ok" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <!-- Direct links -->
+      <div class="reveal-right">
+        <p class="eyebrow">Or hail me directly</p>
+        <div class="crew-contact">
+          <a class="row" href="mailto:akhil.palepally1@gmail.com">
+            <span class="ico">✉️</span>
+            <span>
+              <span class="label">Email</span><br />
+              <span class="val">akhil.palepally1@gmail.com</span>
+            </span>
+          </a>
+          <a class="row" href="https://github.com/" target="_blank" rel="noopener">
+            <span class="ico">💻</span>
+            <span>
+              <span class="label">GitHub</span><br />
+              <span class="val">github.com/your-handle</span>
+            </span>
+          </a>
+          <a class="row" href="https://www.linkedin.com/" target="_blank" rel="noopener">
+            <span class="ico">🔗</span>
+            <span>
+              <span class="label">LinkedIn</span><br />
+              <span class="val">linkedin.com/in/your-handle</span>
+            </span>
+          </a>
+          <a class="row" href="resume.html" target="_blank" rel="noopener">
+            <span class="ico">📜</span>
+            <span>
+              <span class="label">Resume</span><br />
+              <span class="val">View the full bounty sheet →</span>
+            </span>
+          </a>
+        </div>
+
+        <div class="card mt-2" style="border-color: var(--ocean-light);">
+          <h3>🏴‍☠️ Currently</h3>
+          <p>Open to new adventures, collaborations, and quests. Let's find the One Piece together.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================= FOOTER =========================== -->
+  <footer class="footer">
+    <div class="jolly">🏴‍☠️</div>
+    <p class="pixel" style="font-size: 0.75rem; color: var(--straw);">AKHIL PALEPALLY</p>
+    <p>Sailing the Grand Line of code since the East Blue.</p>
+    <p class="small">© <span data-year></span> Akhil Palepally · Built with pixels &amp; pirate spirit.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

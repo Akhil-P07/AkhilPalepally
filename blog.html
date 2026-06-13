@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Captain's Log · Akhil Palepally</title>
+  <meta name="description" content="The Captain's Log — blog posts and dev notes from Akhil Palepally." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏴‍☠️</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="progress"></div>
+  <div class="sunny-ship" aria-hidden="true"></div>
+
+  <!-- ============================ NAV ============================ -->
+  <nav class="nav">
+    <a class="brand" href="index.html">
+      <span class="skull" aria-hidden="true"></span>
+      <span class="name">AKHIL<span class="tag">// Grand Line Dev</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Toggle menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ========================= PAGE HEAD ======================== -->
+  <header class="section-pad" style="padding-top: clamp(6rem, 16vh, 10rem);">
+    <div class="wrap center">
+      <p class="eyebrow reveal">📖 The Captain's Log</p>
+      <h1 class="reveal" style="font-size: clamp(1.8rem, 7vw, 4rem); color: var(--foam); text-shadow: 4px 4px 0 var(--crimson);">CAPTAIN'S LOG</h1>
+      <p class="lead reveal d1" style="margin-inline: auto;">Dispatches from the Grand Line — tutorials, war stories, and half-baked theories I jot down between adventures.</p>
+    </div>
+  </header>
+
+  <div class="rope"></div>
+
+  <!-- =========================== POSTS ========================== -->
+  <section class="section-pad">
+    <div class="wrap">
+      <div class="grid">
+
+        <article class="poster reveal d1">
+          <div class="mug">⚔️</div>
+          <h3>Defeating Layout Sea-Kings with CSS Grid</h3>
+          <div class="bounty">฿ 1,500,000,000</div>
+          <p class="meta" style="text-align:center; font-family: var(--font-pixel); font-size: 0.55rem; color: var(--crimson);">JUN 2026 · 6 MIN READ</p>
+          <p>How I stopped fighting flexbox and learned to love two-dimensional layouts. A practical guide to grid that finally clicks.</p>
+          <div class="links"><a href="#">Read log →</a></div>
+        </article>
+
+        <article class="poster reveal d2">
+          <div class="mug">🍖</div>
+          <h3>Shipping Fast Without Eating Your Stack</h3>
+          <div class="bounty">฿ 1,100,000,000</div>
+          <p class="meta" style="text-align:center; font-family: var(--font-pixel); font-size: 0.55rem; color: var(--crimson);">MAY 2026 · 8 MIN READ</p>
+          <p>Lessons from launching side projects in a weekend. What to over-build, what to skip, and when "good enough" wins.</p>
+          <div class="links"><a href="#">Read log →</a></div>
+        </article>
+
+        <article class="poster reveal d3">
+          <div class="mug">🧭</div>
+          <h3>A Log Pose for State Management</h3>
+          <div class="bounty">฿ 990,000,000</div>
+          <p class="meta" style="text-align:center; font-family: var(--font-pixel); font-size: 0.55rem; color: var(--crimson);">APR 2026 · 5 MIN READ</p>
+          <p>Picking the right state tool without getting lost at sea. A tour of context, stores, and when to keep it simple.</p>
+          <div class="links"><a href="#">Read log →</a></div>
+        </article>
+
+        <article class="poster reveal d1">
+          <div class="mug">🎨</div>
+          <h3>Making Pixel Art Feel Modern</h3>
+          <div class="bounty">฿ 850,000,000</div>
+          <p class="meta" style="text-align:center; font-family: var(--font-pixel); font-size: 0.55rem; color: var(--crimson);">MAR 2026 · 7 MIN READ</p>
+          <p>Mixing retro pixel aesthetics with buttery-smooth motion — the exact recipe behind this very website.</p>
+          <div class="links"><a href="#">Read log →</a></div>
+        </article>
+
+        <article class="poster reveal d2">
+          <div class="mug">🐌</div>
+          <h3>Den Den Mushi: Building Realtime Features</h3>
+          <div class="bounty">฿ 770,000,000</div>
+          <p class="meta" style="text-align:center; font-family: var(--font-pixel); font-size: 0.55rem; color: var(--crimson);">FEB 2026 · 9 MIN READ</p>
+          <p>WebSockets explained the pirate way. How to keep clients in sync without your servers mutinying.</p>
+          <div class="links"><a href="#">Read log →</a></div>
+        </article>
+
+        <article class="poster reveal d3">
+          <div class="mug">💰</div>
+          <h3>Performance Treasure: Shaving Load Times</h3>
+          <div class="bounty">฿ 690,000,000</div>
+          <p class="meta" style="text-align:center; font-family: var(--font-pixel); font-size: 0.55rem; color: var(--crimson);">JAN 2026 · 6 MIN READ</p>
+          <p>The small optimizations that add up to big gold. Lazy loading, bundling, and measuring what matters.</p>
+          <div class="links"><a href="#">Read log →</a></div>
+        </article>
+
+      </div>
+
+      <p class="center muted mt-2 reveal">More logs wash ashore every voyage. ⚓</p>
+    </div>
+  </section>
+
+  <!-- ========================= FOOTER =========================== -->
+  <footer class="footer">
+    <div class="jolly">🏴‍☠️</div>
+    <p class="pixel" style="font-size: 0.75rem; color: var(--straw);">AKHIL PALEPALLY</p>
+    <p>Sailing the Grand Line of code since the East Blue.</p>
+    <p class="small">© <span data-year></span> Akhil Palepally · Built with pixels &amp; pirate spirit.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
