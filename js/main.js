@@ -1,5 +1,5 @@
 /* =========================================================================
-   GRAND LINE — interactions
+   PIXEL PIRATE — interactions
    - scroll progress bar
    - hide/show navbar on scroll
    - IntersectionObserver reveal animations (Apple-style "flow")
@@ -27,9 +27,9 @@
     );
   }
 
-  /* --------------- inject the sailing Thousand Sunny ------------------- */
-  const SUNNY_SVG = `
-  <svg viewBox="0 0 180 150" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" role="img" aria-label="The Thousand Sunny sailing">
+  /* ------------------- inject the sailing pirate ship ------------------ */
+  const SHIP_SVG = `
+  <svg viewBox="0 0 180 150" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" role="img" aria-label="A pixel pirate ship sailing">
     <!-- jolly roger flag -->
     <rect x="70" y="14" width="5" height="92" fill="#5b3a1a"/>
     <rect x="44" y="12" width="26" height="18" fill="#15110d"/>
@@ -45,7 +45,7 @@
     <path d="M70 32 C 34 44, 34 86, 70 98 Z" fill="#f6e7bd" stroke="#c9b582" stroke-width="2"/>
     <rect x="52" y="40" width="2" height="50" fill="#dfceA0"/>
     <rect x="61" y="40" width="2" height="50" fill="#dfceA0"/>
-    <!-- straw hat sail emblem -->
+    <!-- sail emblem -->
     <circle cx="52" cy="64" r="9" fill="none" stroke="#e23636" stroke-width="3"/>
     <!-- grassy deck -->
     <rect x="26" y="100" width="122" height="7" fill="#3fa34d"/>
@@ -59,7 +59,7 @@
     <circle cx="58" cy="125" r="4" fill="#0e4c8a"/>
     <circle cx="84" cy="125" r="4" fill="#0e4c8a"/>
     <circle cx="110" cy="125" r="4" fill="#0e4c8a"/>
-    <!-- lion figurehead at the bow -->
+    <!-- figurehead at the bow -->
     <circle cx="156" cy="98" r="15" fill="#ffd23f"/>
     <circle cx="159" cy="98" r="9" fill="#ffe48a"/>
     <rect x="155" y="94" width="3" height="3" fill="#6b3f1d"/>
@@ -70,9 +70,9 @@
     <rect x="158" y="116" width="5" height="4" fill="#7fd6f0"/>
   </svg>`;
 
-  const ship = document.querySelector(".sunny-ship");
+  const ship = document.querySelector(".ship");
   if (ship) {
-    ship.innerHTML = '<div class="ship-inner">' + SUNNY_SVG + "</div><span class=\"wake\"></span>";
+    ship.innerHTML = '<div class="ship-inner">' + SHIP_SVG + "</div><span class=\"wake\"></span>";
   }
 
   /* ------------------------- reveal on scroll -------------------------- */
@@ -148,7 +148,7 @@
         layer.style.transform = `translateY(${y * speed}px)`;
       });
 
-      /* the Thousand Sunny tacks left/right as you sail down the page */
+      /* the ship tacks left/right as you sail down the page */
       if (ship) {
         const amp = Math.min(window.innerWidth * 0.3, 200);
         const sway = Math.sin(y * 0.0045) * amp;
@@ -186,10 +186,10 @@
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       const status = form.querySelector(".ok");
-      const name = (form.querySelector('[name="name"]') || {}).value || "nakama";
+      const name = (form.querySelector('[name="name"]') || {}).value || "matey";
       if (status) {
         status.textContent =
-          "Den Den Mushi ringing... message sent, " + name + "! ⚓";
+          "Message away — sent off, " + name + "! ⚓";
       }
       form.reset();
     });

@@ -1,5 +1,5 @@
 /* =========================================================================
-   GRAND LINE — One Piece pixel-themed personal site
+   PIXEL PIRATE — pirate pixel-themed personal site
    Shared stylesheet: pixel aesthetic + Apple-style scroll "flow"
    ========================================================================= */
 
@@ -12,10 +12,10 @@
   --sky: #7fd6f0;
   --foam: #d9f4ff;
 
-  /* Straw Hat crew palette */
+  /* Pirate palette */
   --straw: #ffd23f;        /* hat yellow   */
   --gold: #f0a500;         /* treasure     */
-  --red: #e23636;          /* Luffy red    */
+  --red: #e23636;          /* bright red   */
   --crimson: #a4161a;      /* deep red     */
   --parchment: #f6e7bd;    /* map cream    */
   --parchment-2: #efd79a;
@@ -504,7 +504,7 @@ section { position: relative; }
   margin: 0;
 }
 
-/* ------------------------- Skills / devil fruit ------------------------- */
+/* ----------------------------- Skills cards ----------------------------- */
 .fruit {
   text-align: center;
   background: var(--panel);
@@ -602,7 +602,7 @@ section { position: relative; }
       var(--foam) 8px 13px, transparent 13px 16px, var(--foam) 16px 22px);
 }
 
-/* ------------------------- About / log pose grid ------------------------ */
+/* --------------------------- About / split grid ------------------------- */
 .split {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -651,10 +651,10 @@ section { position: relative; }
 .mt-2 { margin-top: 2rem; }
 .muted { color: var(--sky); }
 
-/* ---------------------- THE THOUSAND SUNNY (sailing) -------------------- */
+/* -------------------------- THE SHIP (sailing) -------------------------- */
 /* Fixed mascot that tacks left/right across the page as you scroll.
    Outer element = horizontal sway (set by JS). Inner = bob/rock (CSS). */
-.sunny-ship {
+.ship {
   position: fixed;
   left: 50%;
   bottom: clamp(6px, 3vh, 34px);
@@ -666,14 +666,14 @@ section { position: relative; }
   will-change: transform;
   filter: drop-shadow(5px 7px 0 rgba(0, 0, 0, 0.35));
 }
-.sunny-ship .ship-inner {
+.ship .ship-inner {
   transform-origin: 50% 80%;
   animation: ship-bob 3.4s ease-in-out infinite;
 }
-.sunny-ship svg { width: 100%; height: auto; display: block; }
+.ship svg { width: 100%; height: auto; display: block; }
 
 /* little wake under the ship */
-.sunny-ship .wake {
+.ship .wake {
   position: absolute;
   left: 50%;
   bottom: -6px;
@@ -695,11 +695,11 @@ section { position: relative; }
 }
 
 @media (max-width: 540px) {
-  .sunny-ship { opacity: 0.9; width: 92px; }
+  .ship { opacity: 0.9; width: 92px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .sunny-ship .ship-inner { animation: none; }
-  .sunny-ship .wake { animation: none; }
+  .ship .ship-inner { animation: none; }
+  .ship .wake { animation: none; }
 }
 
 /* ----------------------------- Responsive ------------------------------- */
