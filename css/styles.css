@@ -668,6 +668,13 @@ section { position: relative; }
   will-change: transform;
   filter: drop-shadow(4px 5px 0 rgba(0, 0, 0, 0.3));
 }
+/* the boat's wake trail (canvas injected by JS) — behind the boat & content */
+.ship-trail {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+}
 .ship .ship-inner {
   transform-origin: 50% 55%;
   animation: ship-bob 3.6s ease-in-out infinite;

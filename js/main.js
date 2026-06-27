@@ -82,6 +82,23 @@
     ship.innerHTML = '<div class="ship-inner">' + SHIP_SVG + "</div>";
   }
 
+  /* ---- canvas for the boat's wake trail (home page only) ---- */
+  let trailCanvas = null;
+  let trailCtx = null;
+  if (ship && !prefersReduced) {
+    trailCanvas = document.createElement("canvas");
+    trailCanvas.className = "ship-trail";
+    trailCanvas.setAttribute("aria-hidden", "true");
+    document.body.appendChild(trailCanvas);
+    trailCtx = trailCanvas.getContext("2d");
+    const sizeTrail = () => {
+      trailCanvas.width = window.innerWidth;
+      trailCanvas.height = window.innerHeight;
+    };
+    sizeTrail();
+    window.addEventListener("resize", sizeTrail, { passive: true });
+  }
+
   /* ------------------------- reveal on scroll -------------------------- */
   const revealEls = document.querySelectorAll(
     ".reveal, .reveal-left, .reveal-right, .reveal-zoom"
@@ -166,6 +183,35 @@
         const sway = Math.sin(y * 0.0045) * amp;                // gentle side-to-side weave
         ship.style.transform =
           "translate(calc(-50% + " + sway.toFixed(1) + "px), " + ty.toFixed(1) + "px)";
+
+        /* trace the boat's path on the water: redraw the trajectory from the
+           top down to the boat's current spot, so it fills as you scroll down
+           and retracts as you scroll back up */
+        if (trailCtx) {
+          const cv = trailCanvas;
+          trailCtx.clearRect(0, 0, cv.width, cv.height);
+          const centerX = window.innerWidth / 2;
+          const tailY = shipH * 0.5;            // anchor the wake near the boat's centre
+          trailCtx.lineJoin = "round";
+          trailCtx.lineCap = "round";
+          trailCtx.beginPath();
+          for (let s = 0, started = false; s <= y; s += 9) {
+            const ps = docH > 0 ? s / docH : 0;
+            const sy = s + topMin + ps * (topMax - topMin) + tailY - y;
+            const sx = centerX + Math.sin(s * 0.0045) * amp;
+            if (!started) { trailCtx.moveTo(sx, sy); started = true; }
+            else trailCtx.lineTo(sx, sy);
+          }
+          trailCtx.lineTo(centerX + sway, ty + tailY);   // meet the boat exactly
+          trailCtx.strokeStyle = "rgba(217, 244, 255, 0.10)";  // soft outer wake
+          trailCtx.lineWidth = 9;
+          trailCtx.stroke();
+          trailCtx.setLineDash([2, 9]);                         // foam beads
+          trailCtx.strokeStyle = "rgba(217, 244, 255, 0.5)";
+          trailCtx.lineWidth = 3;
+          trailCtx.stroke();
+          trailCtx.setLineDash([]);
+        }
       }
 
       /* pinned section progress 0..1 */
@@ -192,6 +238,11 @@
     { passive: true }
   );
   onScroll();
+  window.addEventListener(
+    "resize",
+    () => window.requestAnimationFrame(onScroll),
+    { passive: true }
+  );
 
   /* --------------------------- contact form ---------------------------- */
   const form = document.querySelector(".form");
