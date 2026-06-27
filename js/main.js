@@ -29,50 +29,57 @@
 
   /* ------------------- inject the sailing pirate ship ------------------ */
   const SHIP_SVG = `
-  <svg viewBox="0 0 180 150" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" role="img" aria-label="A pixel pirate ship sailing">
-    <!-- jolly roger flag -->
-    <rect x="70" y="14" width="5" height="92" fill="#5b3a1a"/>
-    <rect x="44" y="12" width="26" height="18" fill="#15110d"/>
-    <rect x="55" y="17" width="6" height="6" fill="#f6e7bd"/>
-    <rect x="50" y="23" width="16" height="3" fill="#f6e7bd"/>
-    <!-- back mast -->
-    <rect x="108" y="30" width="5" height="76" fill="#5b3a1a"/>
-    <!-- back sail -->
-    <path d="M113 38 C 144 48, 144 88, 113 98 Z" fill="#f6e7bd" stroke="#c9b582" stroke-width="2"/>
-    <rect x="122" y="52" width="2" height="40" fill="#dfceA0"/>
-    <!-- front sail -->
-    <rect x="42" y="28" width="30" height="4" fill="#5b3a1a"/>
-    <path d="M70 32 C 34 44, 34 86, 70 98 Z" fill="#f6e7bd" stroke="#c9b582" stroke-width="2"/>
-    <rect x="52" y="40" width="2" height="50" fill="#dfceA0"/>
-    <rect x="61" y="40" width="2" height="50" fill="#dfceA0"/>
-    <!-- sail emblem -->
-    <circle cx="52" cy="64" r="9" fill="none" stroke="#e23636" stroke-width="3"/>
-    <!-- grassy deck -->
-    <rect x="26" y="100" width="122" height="7" fill="#3fa34d"/>
-    <rect x="26" y="100" width="122" height="2" fill="#5cc463"/>
-    <!-- hull -->
-    <polygon points="20,107 152,107 138,134 34,134" fill="#a4632e"/>
-    <polygon points="20,107 152,107 150,114 22,114" fill="#c47a3c"/>
-    <rect x="30" y="116" width="108" height="6" fill="#f0a500"/>
-    <polygon points="34,134 138,134 128,143 46,143" fill="#6b3f1d"/>
-    <!-- portholes -->
-    <circle cx="58" cy="125" r="4" fill="#0e4c8a"/>
-    <circle cx="84" cy="125" r="4" fill="#0e4c8a"/>
-    <circle cx="110" cy="125" r="4" fill="#0e4c8a"/>
-    <!-- figurehead at the bow -->
-    <circle cx="156" cy="98" r="15" fill="#ffd23f"/>
-    <circle cx="159" cy="98" r="9" fill="#ffe48a"/>
-    <rect x="155" y="94" width="3" height="3" fill="#6b3f1d"/>
-    <rect x="162" y="94" width="3" height="3" fill="#6b3f1d"/>
-    <rect x="157" y="100" width="5" height="3" fill="#a4161a"/>
-    <!-- bow spray -->
-    <rect x="150" y="120" width="6" height="4" fill="#7fd6f0"/>
-    <rect x="158" y="116" width="5" height="4" fill="#7fd6f0"/>
+  <svg viewBox="0 0 96 176" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" role="img" aria-label="A pixel pirate ship sailing through water">
+    <!-- trailing wake foam (behind the stern) -->
+    <g class="wake-foam" fill="#d9f4ff">
+      <rect x="22" y="2"  width="7" height="7"/>
+      <rect x="67" y="2"  width="7" height="7"/>
+      <rect x="29" y="13" width="7" height="7"/>
+      <rect x="60" y="13" width="7" height="7"/>
+      <rect x="36" y="23" width="6" height="6"/>
+      <rect x="54" y="23" width="6" height="6"/>
+    </g>
+
+    <!-- hull (top-down, bow pointing down) -->
+    <polygon points="30,30 66,30 82,74 78,120 48,170 18,120 14,74" fill="#6b3f1d"/>
+    <polygon points="35,36 61,36 76,75 72,117 48,162 24,117 20,75" fill="#a4632e"/>
+    <polygon points="40,42 56,42 68,76 64,113 48,150 32,113 28,76" fill="#c47a3c"/>
+
+    <!-- deck planks -->
+    <g fill="#a4632e">
+      <rect x="32" y="69" width="32" height="3"/>
+      <rect x="31" y="91" width="34" height="3"/>
+      <rect x="34" y="111" width="28" height="3"/>
+    </g>
+
+    <!-- mast (cross-section) -->
+    <rect x="44" y="74" width="8" height="10" fill="#5b3a1a"/>
+
+    <!-- billowing sail, bulging toward the bow -->
+    <polygon points="30,84 66,84 48,134" fill="#f6e7bd"/>
+    <polygon points="30,84 66,84 48,92" fill="#e9d9ad"/>
+    <circle cx="48" cy="104" r="7" fill="none" stroke="#e23636" stroke-width="3"/>
+
+    <!-- jolly-roger flag laid over the stern -->
+    <rect x="38" y="46" width="20" height="13" fill="#15110d"/>
+    <rect x="44" y="50" width="3" height="3" fill="#f6e7bd"/>
+    <rect x="49" y="50" width="3" height="3" fill="#f6e7bd"/>
+    <rect x="45" y="55" width="7" height="2" fill="#f6e7bd"/>
+
+    <!-- lantern at the bow -->
+    <rect x="44" y="138" width="8" height="8" fill="#ffd23f"/>
+
+    <!-- bow spray (foam where the bow cuts the water) -->
+    <g class="bow-foam" fill="#d9f4ff">
+      <rect x="38" y="166" width="7" height="7"/>
+      <rect x="51" y="166" width="7" height="7"/>
+      <rect x="45" y="172" width="7" height="5"/>
+    </g>
   </svg>`;
 
   const ship = document.querySelector(".ship");
   if (ship) {
-    ship.innerHTML = '<div class="ship-inner">' + SHIP_SVG + "</div><span class=\"wake\"></span>";
+    ship.innerHTML = '<div class="ship-inner">' + SHIP_SVG + "</div>";
   }
 
   /* ------------------------- reveal on scroll -------------------------- */

@@ -652,55 +652,60 @@ section { position: relative; }
 .muted { color: var(--sky); }
 
 /* -------------------------- THE SHIP (sailing) -------------------------- */
-/* Fixed mascot that tacks left/right across the page as you scroll.
-   Outer element = horizontal sway (set by JS). Inner = bob/rock (CSS). */
+/* Fixed mascot that flows DOWN the page (vertical position set by JS) and
+   sits BEHIND all content (z-index: -1) so it never obstructs text or UI.
+   Outer element = position + sway (JS). Inner = bob/rock (CSS). */
 .ship {
   position: fixed;
   left: 50%;
   top: 0;
-  width: clamp(96px, 14vw, 180px);
-  z-index: 60;
+  width: clamp(58px, 8vw, 96px);
+  z-index: -1;                 /* behind content — the boat flows through the page */
   pointer-events: none;
   /* default (pre-JS / reduced-motion): parked mid-page, centred */
   transform: translate(-50%, 45vh);
   transition: transform 0.35s var(--ease);
   will-change: transform;
-  filter: drop-shadow(5px 7px 0 rgba(0, 0, 0, 0.35));
+  filter: drop-shadow(4px 5px 0 rgba(0, 0, 0, 0.3));
 }
 .ship .ship-inner {
-  transform-origin: 50% 80%;
-  animation: ship-bob 3.4s ease-in-out infinite;
+  transform-origin: 50% 55%;
+  animation: ship-bob 3.6s ease-in-out infinite;
 }
 .ship svg { width: 100%; height: auto; display: block; }
 
-/* little wake under the ship */
-.ship .wake {
-  position: absolute;
-  left: 50%;
-  bottom: -6px;
-  width: 70%;
-  height: 10px;
-  transform: translateX(-50%);
-  background: repeating-linear-gradient(90deg,
-    var(--foam) 0 8px, transparent 8px 16px);
-  opacity: 0.7;
-  animation: ship-wake 1.6s linear infinite;
+/* foam streaming off the stern (the wake) + spray at the bow */
+.ship .wake-foam {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: wake-stream 1.6s linear infinite;
+}
+.ship .bow-foam {
+  transform-box: fill-box;
+  transform-origin: 50% 0%;
+  animation: bow-spray 1.1s ease-in-out infinite;
 }
 @keyframes ship-bob {
-  0%, 100% { transform: translateY(0) rotate(-2deg); }
-  50% { transform: translateY(-8px) rotate(2deg); }
+  0%, 100% { transform: rotate(-2.5deg) translateY(0); }
+  50% { transform: rotate(2.5deg) translateY(-4px); }
 }
-@keyframes ship-wake {
-  from { background-position: 0 0; }
-  to { background-position: 16px 0; }
+@keyframes wake-stream {
+  0%   { opacity: 0.12; transform: translateY(6px) scaleX(0.7); }
+  45%  { opacity: 0.7; }
+  100% { opacity: 0; transform: translateY(-12px) scaleX(1.4); }
+}
+@keyframes bow-spray {
+  0%, 100% { opacity: 0.45; transform: translateY(0) scale(1); }
+  50%      { opacity: 0.95; transform: translateY(3px) scale(1.18); }
 }
 
 @media (max-width: 540px) {
-  .ship { opacity: 0.9; width: 92px; }
+  .ship { opacity: 0.85; width: 54px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .ship .ship-inner { animation: none; }
-  .ship .wake { animation: none; }
+  .ship .ship-inner,
+  .ship .wake-foam,
+  .ship .bow-foam { animation: none; }
 }
 
 /* ----------------------------- Responsive ------------------------------- */
