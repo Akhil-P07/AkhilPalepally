@@ -148,11 +148,17 @@
         layer.style.transform = `translateY(${y * speed}px)`;
       });
 
-      /* the ship tacks left/right as you sail down the page */
+      /* the ship flows down the centre of the page, weaving as you scroll */
       if (ship) {
-        const amp = Math.min(window.innerWidth * 0.3, 200);
-        const sway = Math.sin(y * 0.0045) * amp;
-        ship.style.transform = "translateX(calc(-50% + " + sway.toFixed(1) + "px))";
+        const p = docH > 0 ? Math.min(Math.max(y / docH, 0), 1) : 0;
+        const shipH = ship.offsetHeight || 140;
+        const topMin = 24;
+        const topMax = Math.max(window.innerHeight - shipH - 24, topMin);
+        const ty = topMin + p * (topMax - topMin);              // top -> bottom with scroll
+        const amp = Math.min(window.innerWidth * 0.18, 140);
+        const sway = Math.sin(y * 0.0045) * amp;                // gentle side-to-side weave
+        ship.style.transform =
+          "translate(calc(-50% + " + sway.toFixed(1) + "px), " + ty.toFixed(1) + "px)";
       }
 
       /* pinned section progress 0..1 */

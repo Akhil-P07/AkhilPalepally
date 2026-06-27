@@ -657,12 +657,13 @@ section { position: relative; }
 .ship {
   position: fixed;
   left: 50%;
-  bottom: clamp(6px, 3vh, 34px);
+  top: 0;
   width: clamp(96px, 14vw, 180px);
   z-index: 60;
   pointer-events: none;
-  transform: translateX(-50%);
-  transition: transform 0.25s linear;
+  /* default (pre-JS / reduced-motion): parked mid-page, centred */
+  transform: translate(-50%, 45vh);
+  transition: transform 0.35s var(--ease);
   will-change: transform;
   filter: drop-shadow(5px 7px 0 rgba(0, 0, 0, 0.35));
 }
