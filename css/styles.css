@@ -664,7 +664,7 @@ section { position: relative; }
   pointer-events: none;
   /* default (pre-JS / reduced-motion): parked mid-page, centred */
   transform: translate(-50%, 45vh);
-  transition: transform 0.35s var(--ease);
+  transition: transform 0.35s var(--ease), opacity 0.5s var(--ease);
   will-change: transform;
   filter: drop-shadow(4px 5px 0 rgba(0, 0, 0, 0.3));
 }

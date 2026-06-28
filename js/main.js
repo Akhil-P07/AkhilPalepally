@@ -86,6 +86,7 @@
   let trailCanvas = null;
   let trailCtx = null;
   if (ship && !prefersReduced) {
+    ship.style.opacity = "0";   // hidden until you scroll to the "set sail" section
     trailCanvas = document.createElement("canvas");
     trailCanvas.className = "ship-trail";
     trailCanvas.setAttribute("aria-hidden", "true");
@@ -172,8 +173,15 @@
         layer.style.transform = `translateY(${y * speed}px)`;
       });
 
-      /* the ship flows down the centre of the page, weaving as you scroll */
+      /* the ship flows down the centre of the page, weaving as you scroll.
+         It stays hidden through the hero and appears once you reach "set sail". */
       if (ship) {
+        const setSail = pins[0];
+        const appearAt =
+          (setSail ? setSail.offsetTop : window.innerHeight) - window.innerHeight * 0.35;
+        const sailing = y >= appearAt;
+        ship.style.opacity = sailing ? "1" : "0";
+
         const p = docH > 0 ? Math.min(Math.max(y / docH, 0), 1) : 0;
         const shipH = ship.offsetHeight || 140;
         const topMin = 24;
@@ -185,32 +193,35 @@
           "translate(calc(-50% + " + sway.toFixed(1) + "px), " + ty.toFixed(1) + "px)";
 
         /* trace the boat's path on the water: redraw the trajectory from the
-           top down to the boat's current spot, so it fills as you scroll down
-           and retracts as you scroll back up */
+           "set sail" point down to the boat's current spot, so it fills as you
+           scroll down and retracts as you scroll back up */
         if (trailCtx) {
           const cv = trailCanvas;
           trailCtx.clearRect(0, 0, cv.width, cv.height);
-          const centerX = window.innerWidth / 2;
-          const tailY = shipH * 0.5;            // anchor the wake near the boat's centre
-          trailCtx.lineJoin = "round";
-          trailCtx.lineCap = "round";
-          trailCtx.beginPath();
-          for (let s = 0, started = false; s <= y; s += 9) {
-            const ps = docH > 0 ? s / docH : 0;
-            const sy = s + topMin + ps * (topMax - topMin) + tailY - y;
-            const sx = centerX + Math.sin(s * 0.0045) * amp;
-            if (!started) { trailCtx.moveTo(sx, sy); started = true; }
-            else trailCtx.lineTo(sx, sy);
+          if (sailing) {
+            const centerX = window.innerWidth / 2;
+            const tailY = shipH * 0.5;          // anchor the wake near the boat's centre
+            const startS = Math.max(appearAt, 0);
+            trailCtx.lineJoin = "round";
+            trailCtx.lineCap = "round";
+            trailCtx.beginPath();
+            for (let s = startS, started = false; s <= y; s += 9) {
+              const ps = docH > 0 ? s / docH : 0;
+              const sy = s + topMin + ps * (topMax - topMin) + tailY - y;
+              const sx = centerX + Math.sin(s * 0.0045) * amp;
+              if (!started) { trailCtx.moveTo(sx, sy); started = true; }
+              else trailCtx.lineTo(sx, sy);
+            }
+            trailCtx.lineTo(centerX + sway, ty + tailY);   // meet the boat exactly
+            trailCtx.strokeStyle = "rgba(217, 244, 255, 0.10)";  // soft outer wake
+            trailCtx.lineWidth = 9;
+            trailCtx.stroke();
+            trailCtx.setLineDash([2, 9]);                        // foam beads
+            trailCtx.strokeStyle = "rgba(217, 244, 255, 0.5)";
+            trailCtx.lineWidth = 3;
+            trailCtx.stroke();
+            trailCtx.setLineDash([]);
           }
-          trailCtx.lineTo(centerX + sway, ty + tailY);   // meet the boat exactly
-          trailCtx.strokeStyle = "rgba(217, 244, 255, 0.10)";  // soft outer wake
-          trailCtx.lineWidth = 9;
-          trailCtx.stroke();
-          trailCtx.setLineDash([2, 9]);                         // foam beads
-          trailCtx.strokeStyle = "rgba(217, 244, 255, 0.5)";
-          trailCtx.lineWidth = 3;
-          trailCtx.stroke();
-          trailCtx.setLineDash([]);
         }
       }
 
